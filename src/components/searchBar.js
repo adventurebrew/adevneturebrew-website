@@ -32,7 +32,7 @@ const SearchBar = (props) => {
         fontSize="5"
         py="1.5rem"
       />
-      <Button color="bunker" bg="brightTurquoise">
+      <Button aria-label="search" color="bunker" bg="brightTurquoise">
         חפשו
       </Button>
     </Span>
