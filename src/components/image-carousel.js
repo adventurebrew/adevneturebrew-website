@@ -9,9 +9,7 @@ import ImageGallery from 'react-image-gallery';
 import Modal from './modal';
 import createGalleryObject from '../utils/get-gllery-object';
 
-const THUMBNAILS_OFFSET_SEGMENT_IN_PX = 270;
-const IMAGE_LINK =
-  'https://images.ctfassets.net/sk2a8dj5kyra/3ko22T23zCTEGXAyOnLvdK/00765fdd77d2ba8928f744822f743575/66459520_10214422022893490_4737296997038424064_n.jpg?w=800&q=50';
+const THUMBNAILS_OFFSET_SEGMENT_IN_PX = 210;
 
 const StyledImageGallery = styled(Box)`
   height: 100%;
@@ -31,7 +29,8 @@ const ThumbnailsStyle = css`
   height: 100%;
 `;
 
-const SytledImage = css`
+const StyledImage2 = styled(Img)``;
+const StyledImage = css`
   height: 100%;
   width: 300px;
   margin: 0 10px;
@@ -51,10 +50,14 @@ const ImageCarousel = (props) => {
   const scrollThunbnails = (offset) => {
     thumbnailListEl.current.scrollLeft += offset;
   };
-  const scrollThunbnailsRight = () =>
-    scrollThunbnails(-THUMBNAILS_OFFSET_SEGMENT_IN_PX);
-  const scrollThunbnailsLeft = () =>
-    scrollThunbnails(THUMBNAILS_OFFSET_SEGMENT_IN_PX);
+  const scrollThunbnailsRight = () => {
+    const offset = thumbnailListEl.current.clientWidth / 2;
+    scrollThunbnails(-offset);
+  };
+  const scrollThunbnailsLeft = () => {
+    const offset = thumbnailListEl.current.clientWidth / 2;
+    scrollThunbnails(offset);
+  };
   const openModalWithImage = (imageIndex) => {
     setImageIndex(imageIndex);
     setModalOpen(true);
@@ -70,9 +73,9 @@ const ImageCarousel = (props) => {
         <ThumbnailList ref={thumbnailListEl}>
           {thumbnails.map((thumbnail, index) => (
             <img
-              css={SytledImage}
+              css={StyledImage}
               onClick={() => openModalWithImage(index)}
-              id={index}
+              key={index}
               src={thumbnail.fluid.src}
             />
           ))}

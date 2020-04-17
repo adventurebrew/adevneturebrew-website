@@ -1,24 +1,25 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Box, Flex } from './base-components';
+import { Box, Flex, Grid } from './base-components';
 
 const ButtonContent = styled(Box)``;
 const ButtonBorder = styled(Box)``;
-const ButtonContainer = styled(Box)`
-  display: grid;
+const ButtonContainer = styled(Grid)`
   grid-template-rows: 9fr 1fr;
   grid-template-columns: 1fr 3fr;
   align-items: center;
-  // grid-template-areas: 
-  //   'icon button'
-  //   // 'button ${(props) => (!!props.icon ? 'icon' : 'button')}
-  //   'button-border button-border';
+  grid-template-areas:
+    'icon button'
+    'button-border button-border';
   ${ButtonContent} {
     line-height: 1;
     grid-row: 1/3;
-    grid-column: 2;
+    grid-column: 1/3;
     align-self: center;
+    text-align: center;
+    background-color: transparent;
+    line-height: 2em;
   }
   ${ButtonBorder} {
     grid-row: 2;
@@ -28,10 +29,9 @@ const ButtonContainer = styled(Box)`
     width: 100%;
   }
   svg {
-    
     margin: auto;
-    width: 100%; 
-  } 
+    width: 100%;
+  }
 `;
 
 const iconStyle = css`
@@ -56,7 +56,12 @@ const Button = (props) => {
           <Icon size={fontSize} />
         </Flex>
       )}
-      <ButtonContent fontSize={fontSize} {...props} px="3.4rem" />
+      <ButtonContent
+        justifySelf="center"
+        fontSize={fontSize}
+        {...props}
+        px="3.4rem"
+      />
       <ButtonBorder bg="blackfade20" />
     </ButtonContainer>
   );
