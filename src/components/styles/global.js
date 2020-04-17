@@ -17,6 +17,9 @@ const globalStyle = css`
     box-sizing: border-box;
     font-size: 62.5%;
     ${'' /* 62.5% = 10px */}
+    @media only screen and (max-width: 600px) {
+      font-size: 50%;
+    }
   }
   *,
   *:before,
