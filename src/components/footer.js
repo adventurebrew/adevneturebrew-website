@@ -21,17 +21,17 @@ const Copyrights = ({ className }) => (
   <Flex flexDirection="column" alignItems="flex-start" className={className}>
     <Logo css={LogoStyle} mb="3rem" />
     <Flex className="icons" mb="3rem">
-      <a href={FACEBOOK_PAGE} target="_blank">
+      <a rel="noopener" href={FACEBOOK_PAGE} target="_blank">
         <Icon>
           <FacebookIcon size="3rem" />
         </Icon>
       </a>
-      <a href={YOUTUBE_PAGE} target="_blank">
+      <a rel="noopener" href={YOUTUBE_PAGE} target="_blank">
         <Icon>
           <YoutubeIcon size="3rem" />
         </Icon>
       </a>
-      <a href={GITHUB} target="_blank">
+      <a rel="noopener" href={GITHUB} target="_blank">
         <Icon>
           <GithubIcon size="3rem" />
         </Icon>

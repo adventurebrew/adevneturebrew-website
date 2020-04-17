@@ -42,6 +42,8 @@ const FeaturedGallery = () => {
   const images = featuredGames.map((featuredGame) => ({
     srcSet: featuredGame.banner.fluid.srcSet,
     original: featuredGame.banner.fluid.src,
+    originalAlt: featuredGame.title,
+    thumbnailAlt: featuredGame.title,
   }));
   const { titleHebrew, subHeader } = featuredGames[featuredGameIndex];
   return (
