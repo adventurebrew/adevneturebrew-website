@@ -7,7 +7,7 @@ import GameHeader from '../components/game-header';
 import TextContent from '../components/text-content';
 import GameDetails from '../components/game-details';
 import ImageCarousel from '../components/image-carousel';
-
+import theme from '../theme';
 import SEO from '../components/SEO';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -29,8 +29,8 @@ const MainSection = styled(Grid)`
     'gallery gallery gallery gallery gallery gallery gallery gallery'
     '. description description description game-details game-details game-details .'
     '. installation installation installation . . . .';
-  @media only screen and (max-width: 600px) {
-    grid-template-columns: minmax(1rem, 1fr) minmax(20rem, 4fr) minmax(
+  @media only screen and (max-width: ${theme.breakpoints[1]}) {
+    grid-template-columns: minmax(1rem, 1fr) minmax(20rem, 6fr) minmax(
         1rem,
         1fr
       );

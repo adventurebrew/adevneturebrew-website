@@ -1,19 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Box, Flex } from './base-components';
+import { Box, Flex, Grid } from './base-components';
 
 const ButtonContent = styled(Box)``;
 const ButtonBorder = styled(Box)``;
-const ButtonContainer = styled(Box)`
-  display: grid;
+const ButtonContainer = styled(Grid)`
   grid-template-rows: 9fr 1fr;
   grid-template-columns: 1fr 3fr;
   align-items: center;
-  // grid-template-areas: 
-  //   'icon button'
-  //   // 'button ${(props) => (!!props.icon ? 'icon' : 'button')}
-  //   'button-border button-border';
+  grid-template-areas:
+    'icon button'
+    'button-border button-border';
   ${ButtonContent} {
     line-height: 1;
     grid-row: 1/3;
@@ -28,10 +26,9 @@ const ButtonContainer = styled(Box)`
     width: 100%;
   }
   svg {
-    
     margin: auto;
-    width: 100%; 
-  } 
+    width: 100%;
+  }
 `;
 
 const iconStyle = css`

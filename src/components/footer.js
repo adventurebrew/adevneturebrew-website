@@ -7,12 +7,14 @@ import Icon from './icon';
 import FacebookIcon from 'emotion-icons/fa-brands/Facebook';
 import YoutubeIcon from 'emotion-icons/fa-brands/Youtube';
 import GithubIcon from 'emotion-icons/fa-brands/Github';
+import theme from '../theme';
 
 const FACEBOOK_PAGE = 'https://www.facebook.com/groups/200491360554968/';
 const GITHUB = 'https://github.com/hebrew-adventure';
 const YOUTUBE_PAGE = 'https://www.youtube.com/channel/UCKKV7KOyXuNYV7p1tblAEtg';
 const currentYear = new Date().getFullYear();
 
+const { breakpoints } = theme;
 const LogoStyle = css`
   transform: rotate(4deg);
 `;
@@ -46,8 +48,13 @@ const Copyrights = ({ className }) => (
 const StyledFooter = styled(Grid)`
   grid-area: footer;
   align-content: end;
-  grid-template-columns: repeat(3, minmax(14rem, 1fr));
-  grid-template-areas: 'copyrights nav join-us';
+  grid-template-columns: minmax(40rem, 1fr) repeat(3, 1fr);
+  grid-template-areas: 'copyrights . .';
+  @media only screen and (max-width: ${theme.breakpoints[1]}) {
+    grid-template-columns: minmax(40rem, 1fr);
+    grid-template-areas: 'copyrights';
+    justify-self: center;
+  }
   .copyrights {
     grid-area: copyrights;
     .icon {

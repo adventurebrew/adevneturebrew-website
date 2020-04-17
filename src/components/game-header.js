@@ -6,6 +6,7 @@ import Button from './button';
 import Img from 'gatsby-image';
 import ArrowCircleDown from 'emotion-icons/fa-solid/ArrowCircleDown';
 import PropTypes from 'prop-types';
+import theme from '../theme';
 
 const HebrewTitle = styled(Box)``;
 const EnglishTitle = styled(Box)``;
@@ -23,6 +24,22 @@ const GameHeaderStyle = css`
     'box-image company'
     'box-image .'
     'box-image action-button';
+
+  @media only screen and (max-width: ${theme.breakpoints[1]}) {
+    justify-content: center;
+    grid-template-columns: max-content;
+    grid-template-rows: repeat(6, minmax(min-content, 6rem));
+    grid-template-areas:
+      'box-image '
+      'box-image '
+      'box-image '
+      'hebrew-title '
+      'english-title '
+      'action-button ';
+    ${EnglishTitle} {
+      text-align: center;
+    }
+  }
   ${GameBox} {
     grid-area: box-image;
   }
@@ -37,7 +54,7 @@ const GameHeaderStyle = css`
   }
   ${Button} {
     grid-area: action-button;
-    width: 100%;
+    ${'' /* width: 100%; */}
   }
 `;
 

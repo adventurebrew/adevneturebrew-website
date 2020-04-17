@@ -72,7 +72,7 @@ const ImageCarousel = (props) => {
             <img
               css={SytledImage}
               onClick={() => openModalWithImage(index)}
-              id={index}
+              key={index}
               src={thumbnail.fluid.src}
             />
           ))}
