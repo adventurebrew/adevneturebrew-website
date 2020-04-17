@@ -35,6 +35,7 @@ export const colors = {
   outerSpace: '#1D2B2E',
   firefly: '#0A1A1E',
   blackPearl: '#031013',
+  bunker2: '#0F1719',
   blue: ['#6cccfd', '#468aa1', '#0F1719'],
   gray: ['#676d6d', '#262f2f'],
 };

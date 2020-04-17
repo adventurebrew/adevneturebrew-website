@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
+import theme from '../theme';
+
+const { colors } = theme;
 
 const SEO = ({ title, description, image }) => {
   const { pathname } = useLocation();
@@ -30,6 +33,7 @@ const SEO = ({ title, description, image }) => {
         name="viewport"
         content="width=device-width,minimum-scale=1,initial-scale=1"
       />
+      <meta name="theme-color" content={colors.brightTurquoise} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta property="og:url" content={seo.url} />
@@ -51,6 +55,7 @@ const query = graphql`
         defaultDescription: description
         siteUrl: url
         defaultImage: image
+        siteLanguage
       }
     }
   }

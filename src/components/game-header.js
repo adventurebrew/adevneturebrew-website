@@ -75,7 +75,7 @@ const GameHeader = styled(({ game, ...rest }) => {
         color="bunker"
         icon={ArrowCircleDown}
       >
-        <a href={getGameLink} target="_blank">
+        <a rel="noopener" href={getGameLink} target="_blank">
           לקניה
         </a>
       </Button>

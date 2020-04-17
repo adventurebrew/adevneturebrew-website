@@ -12,6 +12,7 @@ export const useAllFeaturedGames = () => {
             subHeader
             slug
             banner {
+              title
               fluid(
                 maxHeight: 300
                 maxWidth: 1000
