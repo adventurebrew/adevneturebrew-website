@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
+import gridProps from './grid-props';
 import {
   border,
   space,
@@ -9,31 +9,8 @@ import {
   typography,
   position,
   shadow,
-  system,
 } from 'styled-system';
 import systemPropTypes from '@styled-system/prop-types';
-
-const gridProps = system({
-  alignSelf: {
-    property: 'align-self',
-  },
-  justifySelf: {
-    property: 'justify-self',
-  },
-  gridArea: {
-    property: 'grid-area',
-  },
-  gridColumn: {
-    property: 'grid-column',
-  },
-  gridRow: {
-    property: 'grid-row',
-  },
-  zIndex: {
-    property: 'z-index',
-    scale: 'zIndex',
-  },
-});
 
 const Box = styled.div`
   ${layout}

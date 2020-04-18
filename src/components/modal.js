@@ -1,23 +1,29 @@
 import ReactDOM from 'react-dom';
 import { Grid, Box } from './base-components';
+import styled from '@emotion/styled';
 
 const portalRoot =
   typeof document !== `undefined` ? document.getElementById('portal') : null;
+const Button = styled(Box)`
+  cursor: pointer;
+`.withComponent('button');
 
+const ModalContainer = styled(Grid)`
+  justify-content: center;
+  align-items: center;
+`;
 const Modal = ({ callback, children }) => {
   return ReactDOM.createPortal(
-    <Grid
+    <ModalContainer
       position="fixed"
       top="0"
       right="0"
       bottom="0"
       left="0"
-      justifyContent="center"
-      alignItems="center"
       bg="blackfade90"
     >
       <Box
-        p="15rem"
+        p="8rem"
         bg="transparent"
         borderRadius="2px"
         display="inline-block"
@@ -29,11 +35,11 @@ const Modal = ({ callback, children }) => {
       >
         {children}
         <hr />
-        <button aria-label="close" onClick={callback}>
+        <Button fontSize="3rem" p="1rem" aria-label="close" onClick={callback}>
           Close
-        </button>
+        </Button>
       </Box>
-    </Grid>,
+    </ModalContainer>,
     portalRoot
   );
 };

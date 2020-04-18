@@ -15,8 +15,11 @@ const ButtonContainer = styled(Grid)`
   ${ButtonContent} {
     line-height: 1;
     grid-row: 1/3;
-    grid-column: 2;
+    grid-column: 1/3;
     align-self: center;
+    text-align: center;
+    background-color: transparent;
+    line-height: 2em;
   }
   ${ButtonBorder} {
     grid-row: 2;
@@ -53,7 +56,12 @@ const Button = (props) => {
           <Icon size={fontSize} />
         </Flex>
       )}
-      <ButtonContent fontSize={fontSize} {...props} px="3.4rem" />
+      <ButtonContent
+        justifySelf="center"
+        fontSize={fontSize}
+        {...props}
+        px="3.4rem"
+      />
       <ButtonBorder bg="blackfade20" />
     </ButtonContainer>
   );
