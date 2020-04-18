@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 import theme from '../../theme.js';
 import strangerFont from '../../../static/fonts/stranger.woff2';
 
-const { colors, fonts } = theme;
+const { colors, fonts, breakpoints } = theme;
 const globalStyle = css`
   @import url('https://fonts.googleapis.com/css?family=Nunito:400');
   @font-face {
@@ -17,6 +17,9 @@ const globalStyle = css`
     box-sizing: border-box;
     font-size: 62.5%;
     ${'' /* 62.5% = 10px */}
+    @media only screen and (max-width: ${breakpoints[1]}) {
+      font-size: 50%;
+    }
   }
   *,
   *:before,

@@ -1,17 +1,19 @@
 import React from 'react';
-import { Grid, Box } from './base-components';
+import { Grid, Box, gridProps } from './base-components';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Button from './button';
 import Img from 'gatsby-image';
 import ArrowCircleDown from 'emotion-icons/fa-solid/ArrowCircleDown';
 import PropTypes from 'prop-types';
+import theme from '../theme';
 
-const HebrewTitle = styled(Box)``;
-const EnglishTitle = styled(Box)``;
-const DevelopingCompany = styled(Box)``;
-const GameBox = styled(Img)``;
-
+const GameBox = styled(Img)`
+  ${gridProps}
+`;
+const ActionButton = styled(Box)`
+  text-decoration: none;
+`.withComponent('a');
 const GameHeaderStyle = css`
   grid-area: game-header;
   grid-column-gap: 2rem;
@@ -23,45 +25,56 @@ const GameHeaderStyle = css`
     'box-image company'
     'box-image .'
     'box-image action-button';
-  ${GameBox} {
-    grid-area: box-image;
-  }
-  ${HebrewTitle} {
-    grid-area: hebrew-title;
-  }
-  ${EnglishTitle} {
-    grid-area: english-title;
-  }
-  ${DevelopingCompany} {
-    grid-area: company;
-  }
-  ${Button} {
-    grid-area: action-button;
-    width: 100%;
+
+  @media only screen and (max-width: ${theme.breakpoints[1]}) {
+    justify-content: center;
+    grid-template-columns: max-content;
+    grid-template-rows: repeat(6, minmax(min-content, 6rem));
+    grid-template-areas:
+      'box-image '
+      'box-image '
+      'box-image '
+      'hebrew-title '
+      'english-title '
+      'action-button ';
   }
 `;
 
 const GameHeader = styled(({ game, ...rest }) => {
   const { titleHebrew, title, gameBox, getGameLink } = game;
   return (
-    <Grid as="section" {...rest}>
-      <GameBox fluid={gameBox.fluid} />
-      <HebrewTitle color="white" fontSize="3.5rem">
-        {titleHebrew}
-      </HebrewTitle>
-      <EnglishTitle fontSize="2rem" fontFamily="ariel" color="alto">
-        {title}
-      </EnglishTitle>
-      <Button
-        className="action-button"
-        bg="green"
-        color="bunker"
-        icon={ArrowCircleDown}
+    <Grid as="section" {...rest} justifyContent="center">
+      <GameBox gridArea="box-image" fluid={gameBox.fluid} />
+      <Box
+        gridArea="hebrew-title"
+        color="white"
+        fontSize="3.5rem"
+        textAlign={['center', 'center', 'initial']}
       >
-        <a href={getGameLink} target="_blank">
+        {titleHebrew}
+      </Box>
+      <Box
+        gridArea="english-title"
+        fontSize="2rem"
+        fontFamily="ariel"
+        color="alto"
+        textAlign={['center', 'center', 'initial']}
+      >
+        {title}
+      </Box>
+      <ActionButton
+        as="a"
+        gridArea="action-button"
+        rel="noopener"
+        href={getGameLink}
+        target="_blank"
+        width={['20rem', '20rem', '100%']}
+        justifySelf="center"
+      >
+        <Button bg="green" color="bunker" height="100%" icon={ArrowCircleDown}>
           לקניה
-        </a>
-      </Button>
+        </Button>
+      </ActionButton>
     </Grid>
   );
 })(GameHeaderStyle);

@@ -8,7 +8,7 @@ const COLORS = {
   DEEP_DIVE: '#2a475e',
   RIVER_STYX: '#171a21',
   DUSTY_WARRIOR: '#b8b6b4',
-}
+};
 
 export const colors = {
   black: '#000000',
@@ -24,6 +24,7 @@ export const colors = {
   blackfade20: 'rgba(27, 31, 35, 0.20)',
   blackfade35: 'rgba(27, 31, 35, 0.35)',
   blackfade50: 'rgba(27, 31, 35, 0.5)',
+  blackfade90: 'rgba(27, 31, 35, 0.9)',
   racingGreen70: 'rgba(10, 22, 10, 0.69)',
   brightTurquoise: '#02EBDF',
   turquoiseBlue: '#5DEDE8',
@@ -34,9 +35,10 @@ export const colors = {
   outerSpace: '#1D2B2E',
   firefly: '#0A1A1E',
   blackPearl: '#031013',
+  bunker2: '#0F1719',
   blue: ['#6cccfd', '#468aa1', '#0F1719'],
   gray: ['#676d6d', '#262f2f'],
-}
+};
 
 const theme = {
   font: 'stranger, sans-serif',
@@ -95,9 +97,16 @@ const theme = {
     '112px',
     '128px',
   ],
-}
-export default theme
+  zIndex: {
+    modal: 9000,
+    overlay: 8000,
+    header: 7000,
+  },
+};
+export default theme;
 
 function fontStack(fonts) {
-  return fonts.map(font => (font.includes(' ') ? `"${font}"` : font)).join(', ')
+  return fonts
+    .map((font) => (font.includes(' ') ? `"${font}"` : font))
+    .join(', ');
 }

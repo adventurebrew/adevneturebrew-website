@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
-import { Grid } from '../components/base-components';
+import { Grid, Box } from '../components/base-components';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import GameHeader from '../components/game-header';
 import TextContent from '../components/text-content';
 import GameDetails from '../components/game-details';
 import ImageCarousel from '../components/image-carousel';
+import theme from '../theme';
 import SEO from '../components/SEO';
 
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -28,26 +29,23 @@ const MainSection = styled(Grid)`
     'gallery gallery gallery gallery gallery gallery gallery gallery'
     '. description description description game-details game-details game-details .'
     '. installation installation installation . . . .';
-  ${GameHeader} {
-    grid-area: game-header;
-  }
-  ${Description} {
-    grid-area: description;
-  }
-  ${InstallationGuide} {
-    grid-area: installation;
+  @media only screen and (max-width: ${theme.breakpoints[1]}) {
+    grid-template-columns: minmax(1rem, 1fr) minmax(20rem, 6fr) minmax(
+        1rem,
+        1fr
+      );
+    grid-template-rows: min-content 20rem repeat(3, minmax(min-content, 10rem));
+    grid-template-areas:
+      '. game-header .'
+      'gallery gallery gallery'
+      '. game-details .'
+      '. description .'
+      '. installation . ';
   }
   ${ImageCarousel} {
     grid-area: gallery;
   }
-  ${GameDetails} {
-    grid-area: game-details;
-  }
 `;
-
-const InstallationGuideBackground = () => (
-  <Grid gridColumn="1 / -1" bg="aztec" gridRow="4" />
-);
 
 const Game = ({ data: { contentfulGame } }) => {
   const {
@@ -62,21 +60,25 @@ const Game = ({ data: { contentfulGame } }) => {
     <Layout>
       <SEO title={titleHebrew} />
       <MainSection as="main">
-        <GameHeader game={contentfulGame} />
+        <GameHeader gridArea="game-header" game={contentfulGame} />
         {!!thumbnails && (
           <ImageCarousel screenshots={screenshots} thumbnails={thumbnails} />
         )}
         <Description
+          as="section"
+          gridArea="description"
           title="תקציר"
           text={description.childMarkdownRemark.html}
         />
-        <InstallationGuideBackground />
+        <Box gridColumn="1 / -1" bg="aztec" gridRow={['5', '5', '4']} />
         <InstallationGuide
+          as="section"
+          gridArea="installation"
           title="הוראות התקנה"
           text={installationGuide.childMarkdownRemark.html}
           my="3rem"
         />
-        <GameDetails game={contentfulGame} />
+        <GameDetails gridArea="game-details" game={contentfulGame} />
       </MainSection>
     </Layout>
   );

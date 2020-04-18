@@ -21,7 +21,7 @@ const MainContent = styled(Grid)`
 const RootIndex = () => (
   <Layout>
     <SEO />
-    <MainContent as="main">
+    <MainContent mt="5rem" as="main">
       <FeaturedGallery />
       <GamesGallery />
     </MainContent>

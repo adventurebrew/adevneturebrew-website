@@ -12,21 +12,20 @@ const GameDetail = Box.withComponent('span');
 const GameDetailRow = styled(({ title, description, ...rest }) => {
   return (
     <Grid as="li" {...rest} gridTemplateColumns="2fr 3fr" gridColumnGap="2rem">
+      <GameDetail px="1rem">{title}</GameDetail>
       <GameDetail>{description}</GameDetail>
-      <GameDetail>{title}</GameDetail>
     </Grid>
   );
 })`
   ${GameDetail} {
     font-family: 'Nunito';
-    text-align: end;
   }
 `;
 
 const GameDetailStyle = css`
   // prettier-ignore
   ${GameDetailRow}:nth-of-type(2n) {
-    clip-path: polygon(0 0, 100% 0%, 98% 100%, 0% 100%);
+    clip-path: polygon(2% 0, 100% 0%, 100% 100%, 0% 100%);
     background-color: ${colors.whitefade20};
   }
 `;
@@ -40,16 +39,13 @@ const GameDetails = styled((props) => {
     <Box {...props} as="section">
       <Box fontSize="3rem"> עוד קצת פרטים</Box>
       <Box as="ul" color="white">
+        <GameDetailRow title="מערכת הפעלה" description={worksOn.join(',')} />
+        <GameDetailRow title="תאריך השקה" description={releaseDate} />
         <GameDetailRow
-          title="Opertion System"
-          description={worksOn.join(',')}
-        />
-        <GameDetailRow title="ReleaseDate" description={releaseDate} />
-        <GameDetailRow
-          title="Size"
+          title="גודל"
           description={kiloBytesToSize(sizeInKiloBytes)}
         />
-        <GameDetailRow title="Company" description={gameDeveloper.name} />
+        <GameDetailRow title="חברה" description={gameDeveloper.name} />
       </Box>
     </Box>
   );

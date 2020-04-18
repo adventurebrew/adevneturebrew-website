@@ -42,8 +42,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        name: 'הַרְפַּתְקָה עִבְרִית',
         lang: `he`,
         icon: `static/favicon.png`,
+        background_color: '#0F1719',
+        theme_color: '#02EBDF',
+        display: `standalone`,
         start_url: `/`,
       },
     },
