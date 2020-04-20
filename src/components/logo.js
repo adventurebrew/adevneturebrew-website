@@ -13,7 +13,7 @@ const Logo = (props) => {
         fontSize="4rem"
         glowRadius="2"
       >
-        הרפתקה בעברית
+        הרפתקה עברית
       </GlowText>
       <Text color="brightTurquoise" opacity="0.6" fontSize="4">
         קווסטים בעברית לילדים ולמבוגרים
