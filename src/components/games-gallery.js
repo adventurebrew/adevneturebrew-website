@@ -6,6 +6,10 @@ import { colors } from '../theme.js';
 import { Grid, Box, Flex } from './base-components';
 import { useAllGames } from '../graphql/hooks';
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const StyledImg = styled(Img)`
   position: relative;
   transition-property: transform box-shadow;
@@ -20,12 +24,12 @@ const StyledImg = styled(Img)`
 
 const Game = ({ game }) => {
   return (
-    <Link to={`/games/${game.slug}`} textDecoration="none">
+    <StyledLink to={`/games/${game.slug}`} textDecoration="none">
       <StyledImg bg="bunker2" fluid={game.titleImage.fluid} />
       <Box mt="1.5rem" fontSize={3}>
         {game.titleHebrew}
       </Box>
-    </Link>
+    </StyledLink>
   );
 };
 
