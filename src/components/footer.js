@@ -10,7 +10,7 @@ import GithubIcon from 'emotion-icons/fa-brands/Github';
 import theme from '../theme';
 
 const FACEBOOK_PAGE = 'https://www.facebook.com/groups/200491360554968/';
-const GITHUB = 'https://github.com/hebrew-adventure';
+const GITHUB = 'https://github.com/adventurebrew';
 const YOUTUBE_PAGE = 'https://www.youtube.com/channel/UCKKV7KOyXuNYV7p1tblAEtg';
 const currentYear = new Date().getFullYear();
 
