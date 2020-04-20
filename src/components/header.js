@@ -2,28 +2,13 @@ import styled from '@emotion/styled';
 import Logo from './logo';
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
-import SearchBar from './searchBar';
-import Navigation from './navigation';
 import { Grid } from './base-components';
 import theme from '../theme.js';
+import gridProps from './base-components/grid-props';
 const { breakpoints, colors } = theme;
 
-const LogoStyle = css`
-  grid-area: logo;
-  text-decoration: none;
-  @media only screen and (max-width: ${breakpoints[1]}) {
-    text-align: center;
-  }
-`;
-
 const LinkedLogo = styled(Link)`
-  grid-area: logo;
-  text-decoration: none;
-`;
-
-const SearchBarStyle = css`
-  align-self: center;
-  grid-area: search-bar;
+  ${gridProps}
 `;
 
 const StyledGrid = styled(Grid)`
@@ -57,7 +42,12 @@ const LinkStyle = styled(Link)({
 
 const Header = () => (
   <StyledGrid as="header" gridGap="2rem">
-    <LinkedLogo to="/" css={LogoStyle}>
+    <LinkedLogo
+      gridArea="logo"
+      to="/"
+      textDecoration="none"
+      textAlign={['center', 'center']}
+    >
       <Logo />
     </LinkedLogo>
   </StyledGrid>

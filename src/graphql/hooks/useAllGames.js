@@ -12,7 +12,7 @@ export const useAllGames = () => {
           titleHebrew
           slug
           titleImage {
-            fluid(maxWidth: 480, maxHeight: 300, resizingBehavior: SCALE) {
+            fluid(maxWidth: 480, maxHeight: 300, resizingBehavior: PAD) {
               ...GatsbyContentfulFluid_withWebp
             }
           }

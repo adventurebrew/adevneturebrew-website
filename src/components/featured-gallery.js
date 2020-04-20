@@ -24,7 +24,7 @@ const FeaturedGallery = () => {
       gridArea="featured"
       gridTemplateColumns="2fr 1fr"
       gridTemplateRows="min-content"
-      mx="5rem"
+      my="5rem"
     >
       <Box gridColumn="1 / span 2" gridRow="1">
         <ImageGallery

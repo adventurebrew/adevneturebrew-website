@@ -20,6 +20,9 @@ const gridProps = system({
     property: 'z-index',
     scale: 'zIndex',
   },
+  textDecoration: {
+    property: 'text-decoration',
+  },
 });
 
 export default gridProps;
