@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import Logo from './logo';
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
+import { typography } from 'styled-system';
 import { Grid } from './base-components';
 import theme from '../theme.js';
 import gridProps from './base-components/grid-props';
@@ -9,6 +10,7 @@ const { breakpoints, colors } = theme;
 
 const LinkedLogo = styled(Link)`
   ${gridProps}
+  ${typography}
 `;
 
 const StyledGrid = styled(Grid)`

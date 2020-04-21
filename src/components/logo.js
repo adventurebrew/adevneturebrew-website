@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import Text from './text';
 import GlowText from './glow-text';
 import { Flex } from './base-components';
