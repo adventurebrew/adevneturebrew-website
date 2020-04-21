@@ -9,8 +9,8 @@ const Main = styled(Grid)`
   grid-area: main;
   grid-row-gap: 5rem;
   grid-template-columns:
-    minmax(3rem, 1fr) repeat(8, minmax(min-content, 20rem))
-    minmax(3rem, 1fr);
+    minmax(2rem, 1fr) repeat(8, minmax(min-content, 20rem))
+    minmax(2rem, 1fr);
   grid-template-rows: repeat(2, min-content);
   grid-template-areas:
     'featured featured featured featured featured featured featured featured featured featured'

@@ -3,11 +3,11 @@ import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { colors } from '../theme.js';
-import { Grid, Box, Flex } from './base-components';
+import { Grid, Box, Flex, defaultProps } from './base-components';
 import { useAllGames } from '../graphql/hooks';
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
+  ${defaultProps}
 `;
 
 const StyledImg = styled(Img)`
@@ -24,9 +24,9 @@ const StyledImg = styled(Img)`
 
 const Game = ({ game }) => {
   return (
-    <StyledLink to={`/games/${game.slug}`} textDecoration="none">
+    <StyledLink to={`/games/${game.slug}`} textDecoration="none" px="5rem">
       <StyledImg bg="bunker2" fluid={game.titleImage.fluid} />
-      <Box mt="1.5rem" fontSize={3}>
+      <Box mt="3rem" fontSize={4}>
         {game.titleHebrew}
       </Box>
     </StyledLink>
@@ -52,9 +52,8 @@ const GamesGallery = () => {
         </Box>
       </Flex>
       <Grid
-        mx="5rem"
-        gridGap="3.5rem"
-        gridTemplateColumns="repeat(auto-fit, minmax(36rem, 1fr))"
+        gridGap="3rem"
+        gridTemplateColumns="repeat(auto-fit, minmax(40rem, 1fr))"
       >
         {games.map((game) => (
           <Game game={game} key={game.id} />
