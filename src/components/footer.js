@@ -17,6 +17,7 @@ const currentYear = new Date().getFullYear();
 const { breakpoints } = theme;
 const LogoStyle = css`
   transform: rotate(4deg);
+  user-select: none;
 `;
 
 const Copyrights = ({ className }) => (

@@ -36,7 +36,7 @@ const Game = ({ game }) => {
 const GamesGallery = () => {
   const games = useAllGames();
   return (
-    <Flex as="section" flexDirection="column" gridArea="gallery" mx="10rem">
+    <Flex as="section" flexDirection="column" gridArea="gallery">
       <Flex flexDirection="row" justifyContent="space-between">
         <Box
           as="span"
