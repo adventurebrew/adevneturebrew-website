@@ -1,4 +1,5 @@
 import { useAllFeaturedGames } from './useAllFeaturedGames';
-import { useAllGames } from './useAllGames';
+import { useAllPublishedGames } from './useAllPublishedGames';
+import { useAllComingSoonGames } from './useAllComingSoonGames';
 
-export { useAllGames, useAllFeaturedGames };
+export { useAllPublishedGames, useAllFeaturedGames, useAllComingSoonGames };

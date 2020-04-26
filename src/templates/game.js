@@ -27,7 +27,7 @@ const MainSection = styled(Grid)`
   grid-template-areas:
     '. game-header game-header game-header game-header game-header game-header .'
     'gallery gallery gallery gallery gallery gallery gallery gallery'
-    '. description description description game-details game-details game-details .'
+    '. description description description . game-details game-details .'
     '. installation installation installation . . . .';
   @media only screen and (max-width: ${theme.breakpoints[1]}) {
     grid-template-columns: minmax(1rem, 1fr) minmax(20rem, 6fr) minmax(

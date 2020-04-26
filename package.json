@@ -61,7 +61,7 @@
   },
   "scripts": {
     "dev": "npm run develop",
-    "develop": "gatsby develop",
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "build": "gatsby build",
     "setup": "node ./bin/setup.js",
     "start": "NODE_ENV=production gatsby serve ",

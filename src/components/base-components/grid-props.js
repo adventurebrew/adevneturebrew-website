@@ -23,6 +23,9 @@ const gridProps = system({
   textDecoration: {
     property: 'text-decoration',
   },
+  wordBreak: {
+    property: 'word-break',
+  },
 });
 
 export default gridProps;
