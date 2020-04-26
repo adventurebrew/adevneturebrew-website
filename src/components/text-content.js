@@ -9,6 +9,7 @@ const TextContent = styled((props) => {
       <Box fontSize="3rem">{title}</Box>
       <Box
         as="p"
+        wordBreak="break-all"
         dangerouslySetInnerHTML={{
           __html: text,
         }}

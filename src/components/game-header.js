@@ -28,7 +28,7 @@ const GameHeaderStyle = css`
 
   @media only screen and (max-width: ${theme.breakpoints[1]}) {
     justify-content: center;
-    grid-template-columns: max-content;
+    grid-template-columns: minmax(min-content, 1fr);
     grid-template-rows: repeat(6, minmax(min-content, 6rem));
     grid-template-areas:
       'box-image '
