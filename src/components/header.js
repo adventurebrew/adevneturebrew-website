@@ -48,7 +48,7 @@ const Header = () => (
       gridArea="logo"
       to="/"
       textDecoration="none"
-      textAlign={['center', 'center']}
+      textAlign={['center', 'center', 'initial']}
     >
       <Logo />
     </LinkedLogo>
