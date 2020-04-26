@@ -7,6 +7,7 @@ import Img from 'gatsby-image';
 import ArrowCircleDown from 'emotion-icons/fa-solid/ArrowCircleDown';
 import PropTypes from 'prop-types';
 import theme from '../theme';
+import { useAllComingSoonGames } from '../graphql/hooks';
 
 const GameBox = styled(Img)`
   ${gridProps}
@@ -14,6 +15,7 @@ const GameBox = styled(Img)`
 const ActionButton = styled(Box)`
   text-decoration: none;
 `.withComponent('a');
+
 const GameHeaderStyle = css`
   grid-area: game-header;
   grid-column-gap: 2rem;
@@ -71,9 +73,16 @@ const GameHeader = styled(({ game, ...rest }) => {
         width={['20rem', '20rem', '100%']}
         justifySelf="center"
       >
-        <Button bg="green" color="bunker" height="100%" icon={ArrowCircleDown}>
-          לקניה
-        </Button>
+        {!!getGameLink && (
+          <Button
+            bg="green"
+            color="bunker"
+            height="100%"
+            icon={ArrowCircleDown}
+          >
+            לקניה
+          </Button>
+        )}
       </ActionButton>
     </Grid>
   );

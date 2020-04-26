@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { colors } from '../theme.js';
 import { Grid, Box, Flex, defaultProps } from './base-components';
-import { useAllGames } from '../graphql/hooks';
 
 const StyledLink = styled(Link)`
   ${defaultProps}
@@ -33,27 +32,31 @@ const Game = ({ game }) => {
   );
 };
 
-const GamesGallery = () => {
-  const games = useAllGames();
+const GamesGallery = (props) => {
+  const { title, games } = props;
+  const shouldShowButton = () => games.length > 9;
   return (
-    <Flex as="section" flexDirection="column" gridArea="gallery">
+    <Flex as="section" flexDirection="column" {...props}>
       <Flex flexDirection="row" justifyContent="space-between">
         <Box
           as="span"
           fontSize="3rem"
+          mb="2rem"
           fontFamily="sans-serif"
           color="white"
           className="title"
         >
-          המשחקים
+          {title}
         </Box>
-        <Box as="a" fontSize="2.3rem" href="/">
-          רוצה עוד
-        </Box>
+        {shouldShowButton() && (
+          <Box as="a" fontSize="2.3rem" href="/">
+            רוצה עוד
+          </Box>
+        )}
       </Flex>
       <Grid
         gridGap="3rem"
-        gridTemplateColumns="repeat(auto-fit, minmax(40rem, 1fr))"
+        gridTemplateColumns="repeat(auto-fill, minmax(35rem, 1fr))"
       >
         {games.map((game) => (
           <Game game={game} key={game.id} />
