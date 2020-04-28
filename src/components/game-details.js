@@ -32,14 +32,14 @@ const GameDetailStyle = css`
 
 const GameDetails = styled((props) => {
   const {
-    game: { worksOn, releaseDate, sizeInKiloBytes, gameDeveloper },
+    game: { operatingSystem, releaseDate, sizeInKiloBytes, gameDeveloper },
   } = props;
-
+  const OSList = operatingSystem.map((os) => os.osName);
   return (
     <Box {...props} as="section">
       <Box fontSize="3rem"> עוד קצת פרטים</Box>
       <Box as="ul" color="white">
-        <GameDetailRow title="מערכת הפעלה" description={worksOn.join(',')} />
+        <GameDetailRow title="מערכת הפעלה" description={OSList.join(',')} />
         <GameDetailRow title="תאריך השקה" description={releaseDate} />
         <GameDetailRow
           title="גודל"

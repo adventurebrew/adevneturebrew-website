@@ -88,10 +88,12 @@ export const pageQuery = graphql`
   query GameBySlug($slug: String!) {
     contentfulGame(slug: { eq: $slug }) {
       title
-      worksOn
       titleHebrew
       sizeInKiloBytes
       getGameLink
+      operatingSystem {
+        osName
+      }
       description {
         childMarkdownRemark {
           html
