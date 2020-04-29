@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Grid, Box } from '../components/base-components';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
 import GameHeader from '../components/game-header';
 import TextContent from '../components/text-content';
 import GameDetails from '../components/game-details';
@@ -57,7 +56,7 @@ const Game = ({ data: { contentfulGame } }) => {
   } = contentfulGame;
 
   return (
-    <Layout>
+    <>
       <SEO title={titleHebrew} />
       <MainSection as="main">
         <GameHeader gridArea="game-header" game={contentfulGame} />
@@ -80,7 +79,7 @@ const Game = ({ data: { contentfulGame } }) => {
         />
         <GameDetails gridArea="game-details" game={contentfulGame} />
       </MainSection>
-    </Layout>
+    </>
   );
 };
 
