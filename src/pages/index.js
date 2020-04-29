@@ -35,11 +35,13 @@ const RootIndex = () => {
           gridArea="gallery"
           games={publishedGames}
         />
-        <GamesGallery
-          title="בקרוב"
-          gridArea="coming-soon"
-          games={comingSoonGames}
-        />
+        {comingSoonGames && (
+          <GamesGallery
+            title="בקרוב"
+            gridArea="coming-soon"
+            games={comingSoonGames}
+          />
+        )}
       </Main>
     </Layout>
   );
