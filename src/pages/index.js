@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
 import { Grid } from '../components/base-components';
 import FeaturedGallery from '../components/featured-gallery';
 import GamesGallery from '../components/games-gallery';
@@ -26,7 +25,7 @@ const RootIndex = () => {
   const comingSoonGames = useAllComingSoonGames();
 
   return (
-    <Layout>
+    <>
       <SEO />
       <Main mt="5rem" as="main">
         <FeaturedGallery />
@@ -35,13 +34,15 @@ const RootIndex = () => {
           gridArea="gallery"
           games={publishedGames}
         />
-        <GamesGallery
-          title="בקרוב"
-          gridArea="coming-soon"
-          games={comingSoonGames}
-        />
+        {comingSoonGames && (
+          <GamesGallery
+            title="בקרוב"
+            gridArea="coming-soon"
+            games={comingSoonGames}
+          />
+        )}
       </Main>
-    </Layout>
+    </>
   );
 };
 export default RootIndex;

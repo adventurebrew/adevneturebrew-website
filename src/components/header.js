@@ -4,6 +4,7 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import { typography } from 'styled-system';
 import { Grid } from './base-components';
+import Navigation from './navigation';
 import theme from '../theme.js';
 import gridProps from './base-components/grid-props';
 const { breakpoints, colors } = theme;
@@ -33,7 +34,7 @@ const NavigationStyle = css`
   justify-content: flex-end;
 `;
 
-const LinkStyle = styled(Link)({
+const StyledLink = styled(Link)({
   ':visited': {
     color: 'inherit',
   },
@@ -52,6 +53,9 @@ const Header = () => (
     >
       <Logo />
     </LinkedLogo>
+    <Navigation css={NavigationStyle}>
+      <StyledLink href="/blog"></StyledLink>
+    </Navigation>
   </StyledGrid>
 );
 
