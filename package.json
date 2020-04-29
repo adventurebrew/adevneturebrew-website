@@ -61,9 +61,11 @@
   },
   "scripts": {
     "dev": "npm run develop",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "build": "gatsby build",
     "setup": "node ./bin/setup.js",
+    "netlify": "netlify dev",
     "start": "NODE_ENV=production gatsby serve ",
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   }
