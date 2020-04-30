@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { Link } from 'gatsby';
 import { Grid, Flex, Box } from './base-components';
 import Logo from './logo';
+import Button from './button';
 import Icon from './icon';
 import FacebookIcon from 'emotion-icons/fa-brands/Facebook';
 import YoutubeIcon from 'emotion-icons/fa-brands/Youtube';
 import GithubIcon from 'emotion-icons/fa-brands/Github';
 import theme from '../theme';
+import Heart from '../icons/Heart';
 
 const FACEBOOK_PAGE = 'https://www.facebook.com/groups/200491360554968/';
 const GITHUB = 'https://github.com/adventurebrew';
@@ -49,8 +52,8 @@ const Copyrights = ({ className }) => (
 const StyledFooter = styled(Grid)`
   grid-area: footer;
   align-content: end;
-  grid-template-columns: minmax(40rem, 1fr) repeat(3, 1fr);
-  grid-template-areas: 'copyrights . .';
+  grid-template-columns: repeat(2, minmax(40rem, 1fr)) minmax(10rem, 25rem);
+  grid-template-areas: 'copyrights .  contribute';
   @media only screen and (max-width: ${theme.breakpoints[1]}) {
     grid-template-columns: minmax(40rem, 1fr);
     grid-template-areas: 'copyrights';
@@ -64,10 +67,47 @@ const StyledFooter = styled(Grid)`
   }
 `;
 
+const contributeStyle = css`
+  flex-direction: column;
+  svg {
+    height: 6rem;
+    width: 6rem;
+  }
+  ${Box} {
+    font-family: sans-serif;
+    font-weight: 700;
+    line-height: 3rem;
+    flex: 1;
+  }
+  a {
+    text-decoration: none;
+  }
+  button {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0) 100%,
+      rgba(255, 255, 255, 0.36) 0%
+    );
+  }
+`;
+const Contribute = () => (
+  <Flex css={contributeStyle} gridArea="contribute">
+    <Heart />
+    <Box my="2rem" fontSize="2.4rem" color="frenchRose">
+      עזרו לנו לתרגם משחקי רטרו למען עתיד ילדנו
+    </Box>
+    <Link to="/contribute">
+      <Button bg="frenchRose" fontSize="2.4rem" color="woodsmoke">
+        אני רוצה לעזור
+      </Button>
+    </Link>
+  </Flex>
+);
 const Footer = () => {
   return (
     <StyledFooter as="footer">
       <Copyrights className="copyrights" />
+      <Contribute />
     </StyledFooter>
   );
 };

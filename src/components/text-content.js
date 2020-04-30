@@ -16,7 +16,9 @@ const TextContent = styled((props) => {
       flexDirection="column"
       align-items="center"
     >
-      <Box fontSize="3rem">{title}</Box>
+      <Box fontSize="3rem" fontFamily="stranger">
+        {title}
+      </Box>
       <Box
         fontFamily="Open Sans Hebrew"
         as="p"

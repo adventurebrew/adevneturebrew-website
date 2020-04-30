@@ -7,7 +7,6 @@ import Img from 'gatsby-image';
 import ArrowCircleDown from 'emotion-icons/fa-solid/ArrowCircleDown';
 import PropTypes from 'prop-types';
 import theme from '../theme';
-import { useAllComingSoonGames } from '../graphql/hooks';
 
 const GameBox = styled(Img)`
   ${gridProps}

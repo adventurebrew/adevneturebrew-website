@@ -29,6 +29,7 @@ export const colors = {
   brightTurquoise: '#02EBDF',
   turquoiseBlue: '#5DEDE8',
   teal: '#00928D',
+  frenchRose: '#F44D8A',
   aztec: '#122327',
   limedSpruce: '#394D52',
   alto: '#D8D8D8',

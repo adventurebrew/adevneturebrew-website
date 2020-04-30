@@ -26,6 +26,9 @@ const gridProps = system({
   wordBreak: {
     property: 'word-break',
   },
+  flex: {
+    property: 'flex',
+  },
 });
 
 export default gridProps;
