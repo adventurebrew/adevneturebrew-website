@@ -1,6 +1,7 @@
 import { css } from '@emotion/core';
 import theme from '../../theme.js';
 import strangerFont from '../../../static/fonts/stranger.woff2';
+import openSansHebrew from '../../../static/fonts/OpenSansHebrewRegular.woff2';
 
 const { colors, fonts, breakpoints } = theme;
 const globalStyle = css`
@@ -11,6 +12,13 @@ const globalStyle = css`
     font-weight: 400;
     font-display: swap;
     src: url(${strangerFont}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans Hebrew';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(${openSansHebrew}) format('woff2');
   }
   html {
     -webkit-font-smoothing: antialiased;

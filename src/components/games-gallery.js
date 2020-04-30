@@ -16,7 +16,7 @@ const StyledImg = styled(Img)`
   transition-timing-function: ease-in-out;
   box-shadow: 0 0 5px ${colors.brightTurquoise};
   &:hover {
-    transform: perspective(195px) rotateX(9deg) scale(1.03);
+    transform: translateY(-1.5rem) scale(1.03);
     box-shadow: 0 0 15px ${colors.brightTurquoise};
   }
 `;
