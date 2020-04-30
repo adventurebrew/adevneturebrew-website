@@ -1,25 +1,32 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Box, Grid } from '../components/base-components';
+import { Box, Grid, Flex } from '../components/base-components';
 import { graphql } from 'gatsby';
+import TextContent from '../components/text-content';
 
-const Main = styled(Grid)`
+const Main = styled(Flex)`
   margin-top: 3rem;
-  grid-area: main;
-  grid-row-gap: 5rem;
-  grid-template-columns: minmax(3rem, 1fr) repeat(6, minmax(min-content, 15rem)) minmax(
-      3rem,
-      1fr
-    );
-  grid-template-rows: min-content 15rem repeat(2, min-content);
 `;
 
 const GameDev = ({ data: { contentfulGameDev } }) => {
-  const { title, titleHebrew } = contentfulGameDev;
+  const { title, titleHebrew, technicalIssues } = contentfulGameDev;
   return (
-    <Main>
-      <Box>{title}</Box>
-      <Box>{titleHebrew}</Box>
+    <Main
+      flexDirection="column"
+      gridArea="main"
+      mx="auto"
+      maxWidth="88rem"
+      p="2rem"
+    >
+      <Box fontSize="4rem">{titleHebrew}</Box>
+      <Box fontSize="2rem">{title}</Box>
+      {technicalIssues.map(({ title, details }) => (
+        <TextContent
+          fontFamily="Open Sans Hebrew"
+          title={title}
+          text={details.childMarkdownRemark.html}
+        />
+      ))}
     </Main>
   );
 };
@@ -30,6 +37,14 @@ export const pageQuery = graphql`
       title
       titleHebrew
       slug
+      technicalIssues {
+        title
+        details {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
     }
   }
 `;
