@@ -13,7 +13,6 @@ const TextContent = styled((props) => {
     <Flex as="section" {...props} flexDirection="column" align-items="center">
       <Box fontSize="3rem">{title}</Box>
       <Details
-        as="p"
         wordBreak="break-word"
         dangerouslySetInnerHTML={{
           __html: text,
