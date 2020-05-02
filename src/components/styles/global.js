@@ -56,5 +56,22 @@ const globalStyle = css`
   a:active {
     color: inherit;
   }
+
+  /* Scrollbar Styles */
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: ${colors.brightTurquoise} ${colors.aztec};
+  }
+  body::-webkit-scrollbar-track {
+    background: transparent
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: ${colors.brightTurquoise} ;
+    border-radius: 6px;
+    border: 3px solid ${colors.aztec}
+  }
 `;
 export default globalStyle;
