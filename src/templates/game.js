@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Grid, Box } from '../components/base-components';
+import { Grid, Box, Flex } from '../components/base-components';
 import styled from '@emotion/styled';
 import Layout from '../components/layout';
 import GameHeader from '../components/game-header';
@@ -23,7 +23,7 @@ const MainSection = styled(Grid)`
       3rem,
       1fr
     );
-  grid-template-rows: min-content 15rem repeat(2, min-content);
+  grid-template-rows: min-content 15rem repeat(3, auto);
   grid-template-areas:
     '. game-header game-header game-header game-header game-header game-header .'
     'gallery gallery gallery gallery gallery gallery gallery gallery'
@@ -34,7 +34,7 @@ const MainSection = styled(Grid)`
         1rem,
         1fr
       );
-    grid-template-rows: min-content 20rem repeat(3, minmax(min-content, 10rem));
+    grid-template-rows: min-content 20rem repeat(3, auto);
     grid-template-areas:
       '. game-header .'
       'gallery gallery gallery'
@@ -45,6 +45,10 @@ const MainSection = styled(Grid)`
   ${ImageCarousel} {
     grid-area: gallery;
   }
+`;
+
+const Background = styled(Box)`
+  clip-path: polygon(0 0, 100% 0px, 100% 92%, 0% 99%);
 `;
 
 const Game = ({ data: { contentfulGame } }) => {
@@ -70,15 +74,22 @@ const Game = ({ data: { contentfulGame } }) => {
           title="תקציר"
           text={description.childMarkdownRemark.html}
         />
-        <Box gridColumn="1 / -1" bg="aztec" gridRow={['5', '5', '4']} />
+        <GameDetails gridArea="game-details" game={contentfulGame} />
+        <Background
+          gridColumn="1 / -1"
+          bg="aztec"
+          gridRow={['5', '5', '4']}
+          borderBottom="none"
+        />
         <InstallationGuide
-          as="section"
           gridArea="installation"
+          as="section"
+          zIndex="1"
           title="הוראות התקנה"
           text={installationGuide.childMarkdownRemark.html}
-          my="3rem"
+          pt="3rem"
+          pb="9rem"
         />
-        <GameDetails gridArea="game-details" game={contentfulGame} />
       </MainSection>
     </Layout>
   );
