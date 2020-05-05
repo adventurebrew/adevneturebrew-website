@@ -81,15 +81,17 @@ const Game = ({ data: { contentfulGame } }) => {
           gridRow={['5', '5', '4']}
           borderBottom="none"
         />
-        <InstallationGuide
-          gridArea="installation"
-          as="section"
-          zIndex="1"
-          title="הוראות התקנה"
-          text={installationGuide.childMarkdownRemark.html}
-          pt="3rem"
-          pb="9rem"
-        />
+        {installationGuide && (
+          <InstallationGuide
+            gridArea="installation"
+            as="section"
+            zIndex="1"
+            title="הוראות התקנה"
+            text={installationGuide.childMarkdownRemark.html}
+            pt="3rem"
+            pb="9rem"
+          />
+        )}
       </MainSection>
     </Layout>
   );
