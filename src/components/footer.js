@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Grid, Flex, Box } from './base-components';
+import { Grid, Flex, Box, Link } from './base-components';
 import Logo from './logo';
 import Icon from './icon';
 import FacebookIcon from 'emotion-icons/fa-brands/Facebook';
@@ -13,7 +13,6 @@ const FACEBOOK_PAGE = 'https://www.facebook.com/groups/200491360554968/';
 const GITHUB = 'https://github.com/adventurebrew';
 const YOUTUBE_PAGE = 'https://www.youtube.com/channel/UCKKV7KOyXuNYV7p1tblAEtg';
 const currentYear = new Date().getFullYear();
-
 const { breakpoints } = theme;
 const LogoStyle = css`
   transform: rotate(4deg);
@@ -24,21 +23,21 @@ const Copyrights = ({ className }) => (
   <Flex flexDirection="column" alignItems="flex-start" className={className}>
     <Logo css={LogoStyle} mb="3rem" />
     <Flex className="icons" mb="3rem">
-      <a rel="noopener" href={FACEBOOK_PAGE} target="_blank">
+      <Link href={FACEBOOK_PAGE}>
         <Icon>
           <FacebookIcon size="3rem" />
         </Icon>
-      </a>
-      <a rel="noopener" href={YOUTUBE_PAGE} target="_blank">
+      </Link>
+      <Link href={YOUTUBE_PAGE}>
         <Icon>
           <YoutubeIcon size="3rem" />
         </Icon>
-      </a>
-      <a rel="noopener" href={GITHUB} target="_blank">
+      </Link>
+      <Link href={GITHUB}>
         <Icon>
           <GithubIcon size="3rem" />
         </Icon>
-      </a>
+      </Link>
     </Flex>
     <Box color="brightTurquoise" opacity="0.6">
       כל הזכיות שמורות להרפתקה בעברית © {currentYear}
