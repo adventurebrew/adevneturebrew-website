@@ -14,7 +14,6 @@
     "@styled-system/theme-get": "5.1.2",
     "babel-plugin-lodash": "3.3.4",
     "contentful": "7.14.2",
-    "contentful-migration": "^1.0.27",
     "emotion-icons": "1.0.0",
     "emotion-theming": "10.0.27",
     "gatsby-image": "2.3.2",
@@ -34,9 +33,7 @@
     "react-helmet": "6.0.0",
     "react-image-gallery": "1.0.7",
     "sharp": "0.25.2",
-    "styled-system": "5.1.5",
-    "ts-node": "^8.10.1",
-    "typescript": "^3.8.3"
+    "styled-system": "5.1.5"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
