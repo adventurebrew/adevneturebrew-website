@@ -2,29 +2,32 @@ import { system } from 'styled-system';
 
 const gridProps = system({
   alignSelf: {
-    property: 'align-self',
+    property: 'alignSelf',
   },
   justifySelf: {
-    property: 'justify-self',
+    property: 'justifySelf',
   },
   gridArea: {
-    property: 'grid-area',
+    property: 'gridArea',
   },
   gridColumn: {
-    property: 'grid-column',
+    property: 'gridColumn',
   },
   gridRow: {
-    property: 'grid-row',
+    property: 'gridRow',
   },
   zIndex: {
-    property: 'z-index',
+    property: 'zIndex',
     scale: 'zIndex',
   },
   textDecoration: {
-    property: 'text-decoration',
+    property: 'textDecoration',
   },
   wordBreak: {
-    property: 'word-break',
+    property: 'wordBreak',
+  },
+  textAlign: {
+    property: 'textAlign',
   },
 });
 

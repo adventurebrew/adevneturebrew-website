@@ -1,8 +1,9 @@
 import React from 'react';
-import { Grid, Box, gridProps } from './base-components';
+import { Grid, Box, gridProps, Link } from './base-components';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Button from './button';
+
 import Img from 'gatsby-image';
 import ArrowCircleDown from 'emotion-icons/fa-solid/ArrowCircleDown';
 import PropTypes from 'prop-types';
@@ -12,9 +13,11 @@ import { useAllComingSoonGames } from '../graphql/hooks';
 const GameBox = styled(Img)`
   ${gridProps}
 `;
-const ActionButton = styled(Box)`
+const ActionButton = styled(Link)`
   text-decoration: none;
-`.withComponent('a');
+  grid-area: action-button;
+  justify-self: center;
+`;
 
 const GameHeaderStyle = css`
   grid-area: game-header;
@@ -43,7 +46,8 @@ const GameHeaderStyle = css`
 `;
 
 const GameHeader = styled(({ game, ...rest }) => {
-  const { titleHebrew, title, gameBox, getGameLink } = game;
+  const { titleHebrew, title, gameBox, getGameLink, links } = game;
+
   return (
     <Grid as="section" {...rest} justifyContent="center">
       <GameBox gridArea="box-image" fluid={gameBox.fluid} />
@@ -64,26 +68,18 @@ const GameHeader = styled(({ game, ...rest }) => {
       >
         {title}
       </Box>
-      <ActionButton
-        as="a"
-        gridArea="action-button"
-        rel="noopener"
-        href={getGameLink}
-        target="_blank"
-        width={['20rem', '20rem', '100%']}
-        justifySelf="center"
-      >
-        {!!getGameLink && (
+      {links.map(({ url, name }, index) => (
+        <ActionButton key={index} href={url} width={['20rem', '20rem', '100%']}>
           <Button
             bg="green"
             color="bunker"
             height="100%"
             icon={ArrowCircleDown}
           >
-            לקניה
+            {name}
           </Button>
-        )}
-      </ActionButton>
+        </ActionButton>
+      ))}
     </Grid>
   );
 })(GameHeaderStyle);

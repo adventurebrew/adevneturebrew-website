@@ -103,7 +103,10 @@ export const pageQuery = graphql`
       title
       titleHebrew
       sizeInKiloBytes
-      getGameLink
+      links {
+        url
+        name
+      }
       operatingSystem {
         osName
       }

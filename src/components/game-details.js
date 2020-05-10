@@ -53,7 +53,6 @@ const GameDetails = styled((props) => {
 
 GameDetails.propTypes = {
   game: PropTypes.shape({
-    worksOn: PropTypes.arrayOf(string).isRequired,
     releaseDate: string.isRequired,
     sizeInKiloBytes: number.isRequired,
     gameDeveloper: PropTypes.shape({ name: string }).isRequired,

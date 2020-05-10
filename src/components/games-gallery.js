@@ -14,6 +14,7 @@ const StyledImg = styled(Img)`
   transition-property: transform box-shadow;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
+  background-color: black;
   box-shadow: 0 0 5px ${colors.brightTurquoise};
   &:hover {
     transform: translateY(-1.5rem) scale(1.03);
@@ -24,7 +25,7 @@ const StyledImg = styled(Img)`
 const Game = ({ game }) => {
   return (
     <StyledLink to={`/games/${game.slug}`} textDecoration="none" px="5rem">
-      <StyledImg bg="bunker2" fluid={game.titleImage.fluid} />
+      <StyledImg fluid={game.titleImage.fluid} />
       <Box mt="3rem" fontSize={4}>
         {game.titleHebrew}
       </Box>
