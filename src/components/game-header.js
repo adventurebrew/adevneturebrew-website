@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Box, gridProps, Link } from './base-components';
+import { Grid, Box, gridProps, Link, Flex } from './base-components';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Button from './button';
@@ -8,15 +8,19 @@ import Img from 'gatsby-image';
 import ArrowCircleDown from 'emotion-icons/fa-solid/ArrowCircleDown';
 import PropTypes from 'prop-types';
 import theme from '../theme';
-import { useAllComingSoonGames } from '../graphql/hooks';
 
 const GameBox = styled(Img)`
   ${gridProps}
 `;
-const ActionButton = styled(Link)`
-  text-decoration: none;
+
+const ActionButton = styled(Link)``;
+const ActionButtons = styled(Flex)`
   grid-area: action-button;
-  justify-self: center;
+  ${ActionButton} {
+    margin-top: 1rem;
+    text-decoration: none;
+    justify-self: center;
+  }
 `;
 
 const GameHeaderStyle = css`
@@ -46,8 +50,7 @@ const GameHeaderStyle = css`
 `;
 
 const GameHeader = styled(({ game, ...rest }) => {
-  const { titleHebrew, title, gameBox, getGameLink, links } = game;
-
+  const { titleHebrew, title, gameBox, links } = game;
   return (
     <Grid as="section" {...rest} justifyContent="center">
       <GameBox gridArea="box-image" fluid={gameBox.fluid} />
@@ -68,18 +71,24 @@ const GameHeader = styled(({ game, ...rest }) => {
       >
         {title}
       </Box>
-      {links.map(({ url, name }, index) => (
-        <ActionButton key={index} href={url} width={['20rem', '20rem', '100%']}>
-          <Button
-            bg="green"
-            color="bunker"
-            height="100%"
-            icon={ArrowCircleDown}
+      <ActionButtons gridArea="action-button" flexDirection="column">
+        {links.map(({ url, name }, index) => (
+          <ActionButton
+            key={index}
+            href={url}
+            width={['20rem', '20rem', '100%']}
           >
-            {name}
-          </Button>
-        </ActionButton>
-      ))}
+            <Button
+              bg="green"
+              color="bunker"
+              height="100%"
+              icon={ArrowCircleDown}
+            >
+              {name}
+            </Button>
+          </ActionButton>
+        ))}
+      </ActionButtons>
     </Grid>
   );
 })(GameHeaderStyle);
