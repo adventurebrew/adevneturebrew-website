@@ -100,9 +100,8 @@ const Game = ({ data: { contentfulGame } }) => {
 export const pageQuery = graphql`
   query GameBySlug($slug: String!) {
     contentfulGame(slug: { eq: $slug }) {
-      title
-      titleHebrew
       sizeInKiloBytes
+      ...gameGalleryFields
       links {
         url
         name
@@ -123,11 +122,6 @@ export const pageQuery = graphql`
       releaseDate(formatString: "MMM, YYYY")
       gameDeveloper {
         name
-      }
-      gameBox {
-        fluid(maxWidth: 400) {
-          ...GatsbyContentfulFluid
-        }
       }
       screenshots {
         fluid(maxWidth: 800) {

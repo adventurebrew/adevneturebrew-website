@@ -50,10 +50,10 @@ const GameHeaderStyle = css`
 `;
 
 const GameHeader = styled(({ game, ...rest }) => {
-  const { titleHebrew, title, gameBox, links } = game;
+  const { titleHebrew, title, titleImage, links } = game;
   return (
     <Grid as="section" {...rest} justifyContent="center">
-      <GameBox gridArea="box-image" fluid={gameBox.fluid} />
+      <GameBox gridArea="box-image" fluid={titleImage.fluid} />
       <Box
         gridArea="hebrew-title"
         color="white"
